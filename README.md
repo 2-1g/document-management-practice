@@ -4,6 +4,10 @@ Spring Boot 기반 문서 관리 백엔드 개발 연습 프로젝트입니다.
 
 ERD를 바탕으로 사용자, 프로젝트, 문서 도메인을 구현하고 GitHub의 Issue, Branch, Commit, Pull Request 흐름을 연습하는 것을 목표로 합니다.
 
+## 다짐
+
+어제의 나보다 나은 사람이 되자.
+
 ## 기술 스택
 
 - Java 25
