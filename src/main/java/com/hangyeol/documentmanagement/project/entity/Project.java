@@ -2,9 +2,11 @@ package com.hangyeol.documentmanagement.project.entity;
 
 import com.hangyeol.documentmanagement.user.entity.User;
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 public class Project {
 
