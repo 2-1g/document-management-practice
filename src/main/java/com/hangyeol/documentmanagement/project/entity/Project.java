@@ -1,5 +1,6 @@
 package com.hangyeol.documentmanagement.project.entity;
 
+import com.hangyeol.documentmanagement.common.entity.BaseTimeEntity;
 import com.hangyeol.documentmanagement.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Project {
+public class Project extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
