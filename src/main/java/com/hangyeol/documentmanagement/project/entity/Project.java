@@ -2,12 +2,15 @@ package com.hangyeol.documentmanagement.project.entity;
 
 import com.hangyeol.documentmanagement.user.entity.User;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Project {
 
     @Id
@@ -23,6 +26,4 @@ public class Project {
 
     private String description;
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
