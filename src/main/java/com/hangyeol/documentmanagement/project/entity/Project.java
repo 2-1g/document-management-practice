@@ -7,8 +7,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,5 +24,15 @@ public class Project extends BaseTimeEntity {
     private String title;
 
     private String description;
+
+    private Project(User owner, String title, String description) {
+        this.owner = owner;
+        this.title = title;
+        this.description = description;
+    }
+
+    public static Project from(User owner, String title, String description) {
+        return new Project(owner, title, description);
+    }
 
 }
