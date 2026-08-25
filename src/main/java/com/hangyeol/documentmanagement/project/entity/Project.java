@@ -26,6 +26,8 @@ public class Project extends BaseTimeEntity {
     private String description;
 
     private Project(User owner, String title, String description) {
+        validate(owner, title);
+
         this.owner = owner;
         this.title = title;
         this.description = description;
@@ -35,4 +37,13 @@ public class Project extends BaseTimeEntity {
         return new Project(owner, title, description);
     }
 
+    private void validate(User owner, String title) {
+        if (owner == null
+            || title == null
+            || title.isBlank()) {
+            throw new IllegalArgumentException(
+                    "프로젝트 작성자와 제목은 필수입니다."
+            );
+        }
+    }
 }
