@@ -19,8 +19,8 @@ public class ProjectTest {
         //then
         assertAll(
                 () -> assertSame(owner, project.getOwner()),
-                () -> assertSame(title, project.getTitle()),
-                () -> assertSame(description, project.getDescription()),
+                () -> assertEquals(title, project.getTitle()),
+                () -> assertEquals(description, project.getDescription()),
                 () -> assertNull(project.getId())
                 // ID가 NULL인지 확인하는 이유는 새 엔티티의 ID는 생성자가 아니라 DB가 만들어야 하기 때문
         );
@@ -45,11 +45,11 @@ public class ProjectTest {
                 ),
                 () -> assertThrows(
                         IllegalArgumentException.class,
-                        () -> Project.from(owner, null, "")
+                        () -> Project.from(owner, "", "설명")
                 ),
                 () -> assertThrows(
                         IllegalArgumentException.class,
-                        () -> Project.from(owner, null, " ")
+                        () -> Project.from(owner, "     ", "설명")
                 )
         );
     }
