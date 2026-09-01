@@ -9,5 +9,5 @@ import java.util.List;
 @Getter
 @RequiredArgsConstructor
 public class ProjectListResponse {
-    private List<ProjectResponse> projects;
+    private final List<ProjectResponse> projects;
 }

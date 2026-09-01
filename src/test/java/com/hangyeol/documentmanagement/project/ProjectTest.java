@@ -1,5 +1,6 @@
 package com.hangyeol.documentmanagement.project;
 
+import com.hangyeol.documentmanagement.project.dto.request.ProjectCreateRequest;
 import com.hangyeol.documentmanagement.project.dto.response.ProjectResponse;
 import com.hangyeol.documentmanagement.user.entity.User;
 import org.junit.jupiter.api.Test;
@@ -74,6 +75,42 @@ public class ProjectTest {
                 () -> assertEquals(title, response.getTitle()),
                 () -> assertEquals(description, response.getDescription())
         );
+    }
+
+    @Test
+    void 프로젝트_생성_요청_DTO() {
+        //given
+        String title = "제목";
+        String description = "설명";
+
+        //when
+        ProjectCreateRequest request = new ProjectCreateRequest(title, description);
+
+        //then
+        assertAll(
+                () -> assertEquals("제목", request.getTitle()),
+                () -> assertEquals("설명", request.getDescription())
+        );
 
     }
+
+    @Test
+    void 프로젝트_생성_요청_DTO_제목_비어있으면_실패() {
+
+        assertAll(
+                () -> assertThrows(
+                        IllegalArgumentException.class,
+                        () -> ProjectCreateRequest.from("", "설명")
+                ),
+                () -> assertThrows(
+                        IllegalArgumentException.class,
+                        () -> ProjectCreateRequest.from(" ", "설명")
+                ),
+                () -> assertThrows(
+                        IllegalArgumentException.class,
+                        () -> ProjectCreateRequest.from(null, "설명")
+                )
+        );
+    }
+
 }
