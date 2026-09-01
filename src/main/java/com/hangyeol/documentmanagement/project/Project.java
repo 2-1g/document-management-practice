@@ -1,4 +1,4 @@
-package com.hangyeol.documentmanagement.project.entity;
+package com.hangyeol.documentmanagement.project;
 
 import com.hangyeol.documentmanagement.common.entity.BaseTimeEntity;
 import com.hangyeol.documentmanagement.user.entity.User;

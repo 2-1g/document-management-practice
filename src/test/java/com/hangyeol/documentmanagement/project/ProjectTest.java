@@ -1,5 +1,6 @@
-package com.hangyeol.documentmanagement.project.entity;
+package com.hangyeol.documentmanagement.project;
 
+import com.hangyeol.documentmanagement.project.dto.response.ProjectResponse;
 import com.hangyeol.documentmanagement.user.entity.User;
 import org.junit.jupiter.api.Test;
 
@@ -52,5 +53,27 @@ public class ProjectTest {
                         () -> Project.from(owner, "     ", "설명")
                 )
         );
+    }
+
+    @Test
+    void 응답_DTO_생성() {
+        // given
+        User owner = User.from("홍길동");
+        String title = "제목";
+        String description = "설명";
+
+        Project project = Project.from(owner, title, description);
+
+        // when
+        ProjectResponse response = ProjectResponse.from(project, 5);
+
+        // then
+        assertAll(
+                () -> assertEquals("홍길동", response.getOwnerName()),
+                () -> assertEquals(5, response.getDocumentCount()),
+                () -> assertEquals(title, response.getTitle()),
+                () -> assertEquals(description, response.getDescription())
+        );
+
     }
 }
